@@ -19,10 +19,13 @@ function getWorkingHours(empCheck) {
     }
 }
 const NUM_OF_WORKING_DAYS = 20; 
-let empHrs = 0;
-for (let day =0; day < NUM_OF_WORKING_DAYS; day++){ //UC 4: Added 'for loop' for getting 20 days wages.
+const MAX_HRS_IN_MONTH = 160;
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){   /*UC 5: Added 'while loop' for getting 20 days and 160 hrs of wages.*/
+    totalWorkingDays++
     let empCheck = Math.floor(Math.random() * 10) % 3;
-    empHrs += getWorkingHours(empCheck);
+    totalEmpHrs += getWorkingHours(empCheck);
 }
-let empWage = empHrs * WAGE_PER_HOURS;
-console.log("Total Hours: "+ empHrs+" Emp Wage: " +empWage);
+let empWage = totalEmpHrs * WAGE_PER_HOURS;
+console.log("UC5- Total Days: " + totalWorkingDays +" |Total Hours: "+ totalEmpHrs+" |Emp Wage: " +empWage);
