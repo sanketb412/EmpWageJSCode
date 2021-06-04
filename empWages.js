@@ -18,8 +18,11 @@ function getWorkingHours(empCheck) {
             return 0;
     }
 }
+const NUM_OF_WORKING_DAYS = 20; 
 let empHrs = 0;
-let empCheck = Math.floor(Math.random() * 10) % 3;
-empHrs = getWorkingHours(empCheck);
+for (let day =0; day < NUM_OF_WORKING_DAYS; day++){ //UC 4: Added 'for loop' for getting 20 days wages.
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs += getWorkingHours(empCheck);
+}
 let empWage = empHrs * WAGE_PER_HOURS;
-console.log("Hours: "+ empHrs+" Emp Wage: " +empWage);
+console.log("Total Hours: "+ empHrs+" Emp Wage: " +empWage);
